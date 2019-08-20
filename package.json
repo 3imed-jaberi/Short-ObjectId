@@ -1,0 +1,29 @@
+{
+  "name": "short-objectid",
+  "version": "1.0.0",
+  "description": " the idea of this project is make your details route easier .. ",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "keywords": [
+    "mongodb",
+    "mongo",
+    "objectId",
+    "short-id",
+    "compress-object",
+    "tiny",
+    "unique-id",
+    "uuid",
+    "tiny-id",
+    "javascript",
+    "typescript"
+  ],
+  "author": "imed jaberi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3imed-jaberi/Short-ObjectId.git"
+  }
+}

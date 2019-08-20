@@ -1,0 +1,8 @@
+
+.DS_Store
+npm-debug.log
+node_modules
+
+# ignore locks file .. 
+yarn.locks
+package-lock.json
