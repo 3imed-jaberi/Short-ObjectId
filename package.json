@@ -1,15 +1,14 @@
 {
   "name": "short-objectid",
-  "version": "1.0.0.rc",
+  "version": "1.0.0-rc",
   "description": " the idea of this project is make your details route easier .. ",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register test/**/*.spec.ts",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "lint": "tslint --project \"./tsconfig.json\"",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha dist/test/*.js - - -R spec",
-    "ci": "npm run lint && npm run build && npm run cover",
+    "ci": "npm run build && npm run cover",
     "postversion": "git push && git push --tags",
     "prepublishOnly": "npm run ci",
     "preversion": "npm run ci"
