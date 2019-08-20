@@ -8,7 +8,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/3imed-jaberi/Short-ObjectId/badge.svg?branch=master)](https://coveralls.io/github/3imed-jaberi/Short-ObjectId?branch=master)
 
-##### The idea of this project is make your details route easier ..
+##### The idea of this project is make your details route easier using mongodb object-ids ..
 
 ## Installation 
 ---
