@@ -1,0 +1,15 @@
+{
+  "_TimestampZone": 7,
+  "_MachineIdZone": 13,
+  "_ProcessIdZone": 17,
+  "_CounterZone": 23,
+  "_Bit":8,
+  "_Timestamp": 4,
+  "_MachineId": 3,
+  "_ProcessId": 2,
+  "_Counter": 3,
+  "__Default_Config_Timestamp": 123,
+  "__Default_Config_MachineId": 456,
+  "__Default_Config_ProcessId": 789,
+  "__Default_Config_Counter": 320 
+}
