@@ -4,8 +4,10 @@
   "description": " the idea of this project is make your details route easier .. ",
   "main": "index.js",
   "scripts": {
+    "test": "mocha --require ts-node/register test/**/*.spec.ts",
     "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build:watch": "tsc --watch",
+    "lint": "tslint --project \"./tsconfig.json\""
   },
   "keywords": [
     "mongodb",
@@ -25,5 +27,15 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/3imed-jaberi/Short-ObjectId.git"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.0",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.2",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
   }
 }
