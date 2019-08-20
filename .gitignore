@@ -4,5 +4,5 @@ npm-debug.log
 node_modules
 
 # ignore locks file .. 
-yarn.locks
+yarn.lock
 package-lock.json
