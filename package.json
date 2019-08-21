@@ -1,6 +1,6 @@
 {
   "name": "short-objectid",
-  "version": "1.0.0-rc",
+  "version": "1.0.0",
   "description": " the idea of this project is make your details route easier .. ",
   "main": "index.js",
   "scripts": {
