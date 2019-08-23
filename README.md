@@ -10,9 +10,6 @@
 
 ##### The idea of this project is make your details route easier using mongodb object-ids ..
 
-###### **`NOTE:`** you can use ES-NEXT feature like async/await ..
-
-
 ## Installation 
 ---
 
