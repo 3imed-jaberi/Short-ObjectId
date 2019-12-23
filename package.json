@@ -1,7 +1,7 @@
 {
   "name": "short-objectid",
-  "version": "1.0.0",
-  "description": " the idea of this project is make your details route easier .. ",
+  "version": "1.0.1",
+  "description": " the idea of this project is make your details route easier 🥰 .. ",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register test/**/*.spec.ts",
@@ -26,7 +26,10 @@
     "javascript",
     "typescript"
   ],
-  "author": "imed jaberi",
+  "author": {
+    "name": "imed jaberi",
+    "email": "3imed.jaberi@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -44,5 +47,10 @@
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
+  },
+  "engines": {
+    "node": ">= 10.12.0",
+    "npm": ">= 6.9.0",
+    "yarn": ">= 1.16.0"
   }
 }
