@@ -3,7 +3,3 @@
 npm-debug.log
 node_modules
 coverage
-
-# ignore locks file .. 
-yarn.lock
-package-lock.json
