@@ -11,5 +11,6 @@
     "__Default_Config_Timestamp": 123,
     "__Default_Config_MachineId": 456,
     "__Default_Config_ProcessId": 789,
-    "__Default_Config_Counter": 320
+    "__Default_Config_Counter": 320,
+    "__OID_LENGTH__": 24
 }
