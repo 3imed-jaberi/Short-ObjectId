@@ -1,13 +1,13 @@
 {
   "name": "short-objectid",
-  "version": "1.0.1",
-  "description": " the idea of this project is make your details route easier 🥰 .. ",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": " The idea of this project is make your details route easier 🥰 .. ",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register test/**/*.spec.ts",
+    "test": "mocha --require ts-node/register **/*.spec.ts",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha dist/test/*.js - - -R spec",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha dist/*.js",
     "ci": "npm run build && npm run cover",
     "postversion": "git push && git push --tags",
     "prepublishOnly": "npm run ci",
@@ -36,17 +36,16 @@
     "url": "git+https://github.com/3imed-jaberi/Short-ObjectId.git"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.0",
+    "@types/chai": "^4.2.7",
     "@types/istanbul": "^0.4.30",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.7.2",
+    "@types/node": "^13.1.2",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.6",
+    "coveralls": "^3.0.9",
     "istanbul": "^0.4.5",
-    "mocha": "^6.2.0",
-    "ts-node": "^8.3.0",
-    "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
+    "mocha": "^6.2.2",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
   },
   "engines": {
     "node": ">= 10.12.0",
