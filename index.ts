@@ -43,20 +43,6 @@ export interface UserConfig {
 function isObjectId (_id: MongoDB_ObjectId): [boolean, string] {
 
   // [status, msg] : response model ..
-  if (Object.keys(_id).length !== 1) {
-    return [
-      false,
-      'Please check your MongoDB ObjectId : should be have one keys ..'
-    ];
-  }
-
-  if (Object.keys(_id).join() !== '$oid' ) {
-    return [
-      false,
-      'Please check your MongoDB ObjectId : the key should be have as name `$oid` ..'
-    ];
-  }
-
   if (_id.$oid.length !== __OID_LENGTH__ ) {
     return [
       false,
