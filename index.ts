@@ -67,9 +67,8 @@ function isObjectId (_id: MongoDB_ObjectId): [boolean, string] {
 
 function setConfig(config: UserConfig | undefined): UserConfig {
 
-  if (typeof config === 'undefined' || config === null ) {
+  if (typeof config === 'undefined') {
     
-    // warn for next version `2.x.x` .. 
     console.warn('Warning : you can use your custom config data'); 
 
     config = {
