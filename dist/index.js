@@ -5,29 +5,17 @@ const config_json_1 = require("./config.json");
 // #         Private Funcs        #
 // ################################
 function isObjectId(_id) {
-    // [status, msg] : response model ..
-    if (Object.keys(_id).length !== 1) {
-        return [
-            false,
-            'Please check your MongoDB ObjectId : should be have one keys ..'
-        ];
-    }
-    if (Object.keys(_id).join() !== '$oid') {
-        return [
-            false,
-            'Please check your MongoDB ObjectId : the key should be have as name `$oid` ..'
-        ];
-    }
+    // [status, msg]: response model ..
     if (_id.$oid.length !== config_json_1.__OID_LENGTH__) {
         return [
             false,
-            `Please check your MongoDB ObjectId : the value of \`$oid\` should be have exact ${config_json_1.__OID_LENGTH__} characters ..`
+            config_json_1.__ERROR_OID_INVALID_SIZE__
         ];
     }
     if (_id.$oid.match(/[^a-z0-9]/g) !== null) {
         return [
             false,
-            'Please check your MongoDB ObjectId : the value of `$oid` should be have only lowercase character and number `<a..z> & <0..9>` ..'
+            config_json_1.__ERROR_OID_INVALID_CONTENT__
         ];
     }
     return [
@@ -37,9 +25,8 @@ function isObjectId(_id) {
 }
 ;
 function setConfig(config) {
-    if (typeof config === 'undefined' || config === null) {
-        // warn for next version `2.x.x` .. 
-        console.warn('Warning : you can use your custom config data');
+    if (typeof config === 'undefined') {
+        console.warn(config_json_1.__WARN_MSG__);
         config = {
             Timestamp: config_json_1.__Default_Config_Timestamp,
             MachineId: config_json_1.__Default_Config_MachineId,
@@ -76,8 +63,8 @@ function shortObjectIdCore(_id, config) {
 // ################################
 /**
  * The idea of this project is make your details route easier by convert objectid to number 🥰 ..
- * @param {MongoDB_ObjectId} _id : MongoDB Object ID ..
- * @param {UserConfig} config : Custom User Configuration ..
+ * @param {MongoDB_ObjectId} _id: MongoDB Object ID ..
+ * @param {UserConfig} config: Custom User Configuration ..
  */
 function shortObjectId(_id, config) {
     const [status, msg] = isObjectId(_id);
@@ -90,5 +77,5 @@ exports.shortObjectId = shortObjectId;
 ;
 // For CommonJS default export support 
 module.exports = shortObjectId;
-module.exports.shortObjectId = shortObjectId; // old export method ..
+module.exports.shortObjectId = shortObjectId;
 module.exports.default = shortObjectId;

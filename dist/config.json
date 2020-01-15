@@ -12,5 +12,8 @@
     "__Default_Config_MachineId": 456,
     "__Default_Config_ProcessId": 789,
     "__Default_Config_Counter": 320,
-    "__OID_LENGTH__": 24
+    "__OID_LENGTH__": 24,
+    "__ERROR_OID_INVALID_CONTENT__": "Please check your MongoDB ObjectId: the value of `$oid` should be have only lowercase character and number `<a..z> & <0..9>` ..",
+    "__ERROR_OID_INVALID_SIZE__": "Please check your MongoDB ObjectId: the value of `$oid` should be have exact 24 characters ..",
+    "__WARN_MSG__": "Warning: you can use your custom config data"
 }
