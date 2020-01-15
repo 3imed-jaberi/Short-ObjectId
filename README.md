@@ -1,14 +1,9 @@
 # Short ObjectId
 ---
 
-<!-- soon will be add a logo as my other packages .. -->
-<!-- ![imed-jaberi](logo.jpg) -->
+[![Build Status](https://travis-ci.org/3imed-jaberi/Short-ObjectId.svg?branch=master)](https://travis-ci.org/3imed-jaberi/Short-ObjectId) &nbsp; [![Coverage Status](https://coveralls.io/repos/github/3imed-jaberi/Short-ObjectId/badge.svg?branch=master)](https://coveralls.io/github/3imed-jaberi/Short-ObjectId?branch=master)
 
-[![Build Status](https://travis-ci.org/3imed-jaberi/Short-ObjectId.svg?branch=master)](https://travis-ci.org/3imed-jaberi/Short-ObjectId)
-
-[![Coverage Status](https://coveralls.io/repos/github/3imed-jaberi/Short-ObjectId/badge.svg?branch=master)](https://coveralls.io/github/3imed-jaberi/Short-ObjectId?branch=master)
-
-#### The idea of this project is make your details route easier using mongodb object-ids ..
+### The idea of this project is make your details route easier using mongodb object-ids ..
 
 
 ## Installation 
