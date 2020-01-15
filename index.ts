@@ -12,7 +12,10 @@ import {
   __Default_Config_MachineId,
   __Default_Config_ProcessId,
   __Default_Config_Counter,
-  __OID_LENGTH__
+  __OID_LENGTH__,
+  __ERROR_OID_INVALID_CONTENT__,
+  __ERROR_OID_INVALID_SIZE__,
+  __WARN_MSG__
 } from './config.json';
 
 
@@ -42,18 +45,18 @@ export interface UserConfig {
 
 function isObjectId (_id: MongoDB_ObjectId): [boolean, string] {
 
-  // [status, msg] : response model ..
+  // [status, msg]: response model ..
   if (_id.$oid.length !== __OID_LENGTH__ ) {
     return [
       false,
-      `Please check your MongoDB ObjectId : the value of \`$oid\` should be have exact ${__OID_LENGTH__} characters ..`
+      __ERROR_OID_INVALID_SIZE__
     ];
   }
 
   if (_id.$oid.match(/[^a-z0-9]/g) !== null ) {
     return [
       false,
-      'Please check your MongoDB ObjectId : the value of `$oid` should be have only lowercase character and number `<a..z> & <0..9>` ..'
+      __ERROR_OID_INVALID_CONTENT__
     ];
   }
 
@@ -61,23 +64,18 @@ function isObjectId (_id: MongoDB_ObjectId): [boolean, string] {
     true,
     ''
   ];
-
 };
 
 
-function setConfig(config: UserConfig | undefined): UserConfig {
-
+function setConfig(config?: UserConfig): UserConfig {
   if (typeof config === 'undefined') {
-    
-    console.warn('Warning : you can use your custom config data'); 
-
+    console.warn(__WARN_MSG__); 
     config = {
-      Timestamp : __Default_Config_Timestamp,
-      MachineId : __Default_Config_MachineId,
-      ProcessId : __Default_Config_ProcessId,
-      Counter : __Default_Config_Counter
+      Timestamp: __Default_Config_Timestamp,
+      MachineId: __Default_Config_MachineId,
+      ProcessId: __Default_Config_ProcessId,
+      Counter: __Default_Config_Counter
     }
-
   }
 
   return config;
@@ -85,20 +83,12 @@ function setConfig(config: UserConfig | undefined): UserConfig {
 
 
 function shortObjectIdCore(_id: MongoDB_ObjectId, config: UserConfig): number {
-
   let result: number = 0, 
   __Our_Condition__: number,
   Id: string = _id.$oid,
-  { 
-    Timestamp,
-    MachineId, 
-    ProcessId, 
-    Counter 
-  } = config;
-
+  { Timestamp, MachineId, ProcessId, Counter } = config;
 
   Id.split('').forEach((char: string, index: number) => {
-
     switch(index) {
       case _TimestampZone: __Our_Condition__ = _Timestamp * _Bit * Timestamp; break;
       case _MachineIdZone: __Our_Condition__ = _MachineId * _Bit * MachineId; break;
@@ -106,9 +96,7 @@ function shortObjectIdCore(_id: MongoDB_ObjectId, config: UserConfig): number {
       case _CounterZone: __Our_Condition__ = _Counter * _Bit * Counter; break;
       default: __Our_Condition__ = 1;
     }
-    
-    result = result + ((index + char.charCodeAt(0)) * __Our_Condition__ );
-  
+    result = result + ((index + char.charCodeAt(0)) * __Our_Condition__);
   });
 
   return result;
@@ -120,11 +108,10 @@ function shortObjectIdCore(_id: MongoDB_ObjectId, config: UserConfig): number {
 // ################################
 
 
-
 /**
  * The idea of this project is make your details route easier by convert objectid to number 🥰 ..
- * @param {MongoDB_ObjectId} _id : MongoDB Object ID .. 
- * @param {UserConfig} config : Custom User Configuration ..
+ * @param {MongoDB_ObjectId} _id: MongoDB Object ID .. 
+ * @param {UserConfig} config: Custom User Configuration ..
  */
 export function shortObjectId (_id: MongoDB_ObjectId, config?: UserConfig): number {
 
@@ -133,15 +120,13 @@ export function shortObjectId (_id: MongoDB_ObjectId, config?: UserConfig): numb
   if(!status) {
     throw new Error(msg).message;
   }
-
   
   return shortObjectIdCore(_id, setConfig(config));
-
 };
 
 
 
 // For CommonJS default export support 
 module.exports = shortObjectId;
-module.exports.shortObjectId = shortObjectId; // old export method ..
+module.exports.shortObjectId = shortObjectId;
 module.exports.default = shortObjectId;
