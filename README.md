@@ -1,29 +1,24 @@
 # Short ObjectId
 ---
 
-[![Build Status](https://travis-ci.org/3imed-jaberi/Short-ObjectId.svg?branch=master)](https://travis-ci.org/3imed-jaberi/Short-ObjectId) &nbsp; [![Coverage Status](https://coveralls.io/repos/github/3imed-jaberi/Short-ObjectId/badge.svg?branch=master)](https://coveralls.io/github/3imed-jaberi/Short-ObjectId?branch=master)
+[![Build Status][travis-img]][travis-url] &nbsp;&nbsp;
+[![Coverage Status][coverage-img]][coverage-url] &nbsp;&nbsp;
 
 ### The idea of this project is make your details route easier using mongodb object-ids ..
 
 
-## Installation 
----
-
-- NPM :
+## Installation
 
 ```bash
+# npm ..
 $ npm install short-objectid
-```
-
-- YARN :
-
-```bash
+# yarn ..
 $ yarn add short-objectid
 ```
 
 
-## Usage 
----
+## Usage
+
 The method of use is simple and very easy ... Just follow these steps :
 
 Step 1 : Import the module in this way.
@@ -40,9 +35,9 @@ Step 2 : Enter the mongodb objectId with your custom config object you want to t
  let MongoDB_ObjectID = { "$oid" : "507f191e810c19729de860ea" }; 
 
  // Config Object <Optional> .. 
- let Config = { Timestamp: 57, MachineId: 65, ProcessId: 48, Counter: 47 }; 
+ let config = { Timestamp: 57, MachineId: 65, ProcessId: 48, Counter: 47 }; 
 
- let result = shortObjectId(MongoDB_ObjectID, Config);
+ let result = shortObjectId(MongoDB_ObjectID, config);
  
  console.log(`*****\n ${result} \n*****`);
 ```
@@ -57,4 +52,11 @@ $your_pc_name_with_your_directory
 
 #### License
 ---
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](LICENSE)
+
+
+
+[travis-img]: https://travis-ci.org/3imed-jaberi/Short-ObjectId.svg?branch=master
+[travis-url]: https://travis-ci.org/3imed-jaberi/Short-ObjectId
+[coverage-img]: https://coveralls.io/repos/github/3imed-jaberi/Short-ObjectId/badge.svg?branch=master
+[coverage-url]: https://coveralls.io/github/3imed-jaberi/Short-ObjectId?branch=master
