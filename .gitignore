@@ -1,5 +1,29 @@
-
+#       OS        #
+###################
 .DS_Store
-*.log
+.idea
+Thumbs.db
+tmp/
+temp/
+
+
+#     Node.js     #
+###################
 node_modules
+package-lock.json
+yarn.lock
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+
+#       NYC       #
+###################
 coverage
+*.lcov
+.nyc_output
+
+
+#       build       #
+###################
+dist
