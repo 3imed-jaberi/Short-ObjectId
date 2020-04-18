@@ -37,6 +37,7 @@ const
 // #         Private Funcs        #
 // ################################
 
+// TODO: in next version the user can pass string not required obj. ... 
 function isObjectId (_id: MongoDB_ObjectId): [boolean, string?] {
   if (_id.$oid.length !== __OID_LENGTH__ ) return [false, 'Please check your MongoDB ObjectId: the value of `$oid` should be have exact 24 characters ..'];
   if (_id.$oid.match(/[^a-z0-9]/g) !== null ) return [false, 'Please check your MongoDB ObjectId: the value of `$oid` should be have only lowercase character and number `<a..z> & <0..9>` ..'];
