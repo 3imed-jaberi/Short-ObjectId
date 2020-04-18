@@ -1,19 +1,26 @@
 import 'mocha';
 import { expect } from 'chai';
-import { shortObjectId, MongoDB_ObjectId, UserConfig } from '.';
-import { __ERROR_OID_INVALID_CONTENT__, __ERROR_OID_INVALID_SIZE__ } from './config.json';
+import shortObjectId from '.';
 
 
+// types .. 
+interface MongoDB_ObjectId { $oid: string }
 
+interface UserConfig {
+  Timestamp: number;
+  MachineId: number;
+  ProcessId: number;
+  Counter: number;
+}
+
+// test code .. 
 describe('unit test using ` mocha ☕️ ` & ` chai 🍵 ` is running 👻 ..', () => {
-
   let __MongoDB_ObjectID__: MongoDB_ObjectId,
   __MongoDB_ObjectID__CATCH_1__: MongoDB_ObjectId, 
   __MongoDB_ObjectID__CATCH_2__: MongoDB_ObjectId, 
   __Config__: UserConfig,
   __Result__: number,
   __Correct_Result__: number;
-
 
   beforeEach(() =>{
    __MongoDB_ObjectID__ = { "$oid" : "507f191e810c19729de860ea" };
@@ -38,11 +45,10 @@ describe('unit test using ` mocha ☕️ ` & ` chai 🍵 ` is running 👻 ..', 
   
 
   it('catch case < invalid oid > ⛔️ .. ', () => {
-     expect(() => shortObjectId(__MongoDB_ObjectID__CATCH_1__)).to.throw(new Error(__ERROR_OID_INVALID_CONTENT__).message);
+     expect(() => shortObjectId(__MongoDB_ObjectID__CATCH_1__)).to.throw(new Error('Please check your MongoDB ObjectId: the value of `$oid` should be have only lowercase character and number `<a..z> & <0..9>` ..').message);
   });
 
   it('catch case < length oid > ⛔️ .. ', () => {
-     expect(() => shortObjectId(__MongoDB_ObjectID__CATCH_2__)).to.throw(new Error(__ERROR_OID_INVALID_SIZE__).message);
+     expect(() => shortObjectId(__MongoDB_ObjectID__CATCH_2__)).to.throw(new Error("Please check your MongoDB ObjectId: the value of `$oid` should be have exact 24 characters ..").message);
   });
-
 });
