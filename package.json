@@ -1,8 +1,12 @@
 {
   "name": "short-objectid",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": " The idea of this project is make your details route easier 🥰 .. ",
   "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "test": "mocha --require ts-node/register **/*.spec.ts",
     "build": "tsc",
@@ -16,6 +20,7 @@
   "keywords": [
     "mongodb",
     "mongo",
+    "mongoose",
     "objectId",
     "short-id",
     "compress-object",
@@ -28,7 +33,8 @@
   ],
   "author": {
     "name": "imed jaberi",
-    "email": "3imed.jaberi@gmail.com"
+    "email": "3imed.jaberi@gmail.com",
+    "url": "https://www.3imed-jaberi.com"
   },
   "license": "MIT",
   "repository": {
@@ -41,15 +47,12 @@
     "@types/mocha": "^5.2.7",
     "@types/node": "^13.1.2",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.9",
     "istanbul": "^0.4.5",
     "mocha": "^6.2.2",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
   },
   "engines": {
-    "node": ">= 10.12.0",
-    "npm": ">= 6.9.0",
-    "yarn": ">= 1.16.0"
+    "node": ">= 8"
   }
 }
