@@ -6,6 +6,7 @@
 
 ### The idea of this project is make your details route easier using mongodb object-ids ..
 
+Note: v4.2.0 ~ currently 1 option it's available ({ cache: true}).
 
 ## Installation
 
@@ -19,29 +20,29 @@ $ yarn add short-objectid
 
 ## Usage
 
-The method of use is simple and very easy ... Just follow these steps :
-
-Step 1 : Import the module in this way.
+The method of use is simple and very easy ... Just follow this example :
 
 ```javascript
-const shortObjectId = require ('short-objectid') ; // you can  also use destucture way .. 
-```
+  const shortObjectId = require ('short-objectid') ; // you can  also use destucture way .. 
 
-Step 2 : Enter the mongodb objectId with your custom config object you want to the function.
+  // ObjectId ..  
+  let MongoDB_ObjectID = { "$oid" : "507f191e810c19729de860ea" }; 
 
-```javascript
+  // Config Object <Optional> .. 
+  let config = { Timestamp: 57, MachineId: 65, ProcessId: 48, Counter: 47 }; 
 
- // ObjectId ..  
- let MongoDB_ObjectID = { "$oid" : "507f191e810c19729de860ea" }; 
-
- // Config Object <Optional> .. 
- let config = { Timestamp: 57, MachineId: 65, ProcessId: 48, Counter: 47 }; 
-
- let result = shortObjectId(MongoDB_ObjectID, config);
+  // Now, with Version 4.2.0 you can use Opts Object <Optional>
+  // for say to `shortObjectId` please give me the original 
+  // objectId.
+  let opts = { cache: true }; // default is false .. 
+  // so the result 
+  let [shortObjectId, MongoDB_ObjectID] = shortObjectId(MongoDB_ObjectID, config, opts);
  
- console.log(`*****\n ${result} \n*****`);
+  console.log(`*****\n ${shortObjectId} \n*****`);
 ```
-Step 3 : Execute method to see the result ..
+
+### Result
+
 ```bash
 $your_pc_name_with_your_directory
 *****
