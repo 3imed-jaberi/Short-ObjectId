@@ -11,6 +11,10 @@ interface UserConfig {
   Counter: number;
 }
 
+interface Options {
+  cache?: boolean;
+}
+
 // ################################
 // #       Var. Declaration       #
 // ################################
@@ -81,13 +85,16 @@ function shortObjectIdCore(_id: MongoDB_ObjectId, config: UserConfig): number {
  * @param {MongoDB_ObjectId} _id: MongoDB Object ID .. 
  * @param {UserConfig} config: Custom User Configuration ..
  */
-function shortObjectId (_id: MongoDB_ObjectId, config?: UserConfig): number {
+function shortObjectId (_id: MongoDB_ObjectId, config?: UserConfig, Options?: Options): number | [number, string?] {
   const [status, msg] = isObjectId(_id);
 
   if(!status) {
     throw new Error(msg).message;
   }
-  return shortObjectIdCore(_id, setConfig(config));
+
+  const shortObjectId = shortObjectIdCore(_id, setConfig(config));
+
+  return Options?.cache ? [shortObjectId, _id.$oid] : shortObjectId;
 };
 
 // ################################
