@@ -12,7 +12,7 @@
     "test:watch": "npm run test -- --watch",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "cover": "istanbul cover node_modules/mocha/bin/_mocha dist/*.js",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha dist/**/*.js",
     "ci": "npm run build && npm run cover",
     "postversion": "git push && git push --tags",
     "prepublishOnly": "npm run ci",
