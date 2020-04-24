@@ -60,4 +60,6 @@ const shortObjectIdCache = (function  () {
 export { shortObjectId as default, shortObjectId, shortObjectIdCache };
 
 // For CommonJS
-// module.exports.default = shortObjectId;
+module.exports.default = shortObjectId;
+module.exports.shortObjectId = shortObjectId;
+module.exports.shortObjectIdCache = shortObjectIdCache;
