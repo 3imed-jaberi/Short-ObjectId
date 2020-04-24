@@ -1,4 +1,5 @@
-import { CacheEl, CacheState } from './../@types/index';
+import { CacheEl, CacheState } from '../@types';
+import { isObjectId } from '../utils';
 
 class ShortObjectIdCache {
   private static instance: ShortObjectIdCache;
@@ -30,9 +31,14 @@ class ShortObjectIdCache {
     this.cacheState = [...this.cacheState, newData];
   }
 
-  public getFullObjectId(shortObjectId: number): string {
-    const result = this.getCacheState().filter((state: CacheEl) => state.shortObjectId === shortObjectId);
+  public getFullObjectId(shortObjectId: number): string | void {
+    // catch promise warn with express and mongoose .. 
+    if(isNaN(parseInt(shortObjectId.toString(), 10))){
+      return;
+    }
 
+    const result = this.getCacheState().filter((state: CacheEl, index) => state.shortObjectId == shortObjectId);
+    
     if(result.length !== 1) {
       throw new Error(`Your ShortObjectId < ${shortObjectId} > Not Found ..`)
     }
@@ -40,8 +46,13 @@ class ShortObjectIdCache {
     return result[0].oid;
   }
 
-  public getShortObjectId(fullObjectId: string): number {
-    const result = this.getCacheState().filter(state => state.oid === fullObjectId);
+  public getShortObjectId(fullObjectId: string): number | void {
+    // catch promise warn with express and mongoose .. 
+    if(typeof fullObjectId == 'undefined'){
+      return;
+    }
+    
+    const result = this.getCacheState().filter(state => state.oid == fullObjectId);
     
     if(result.length !== 1) {
       throw new Error(`Your ObjectId < ${fullObjectId} > Not Found ..`)
