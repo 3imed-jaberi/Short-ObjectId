@@ -75,7 +75,7 @@ This is a practical example of how to use.
   // Now you have access to 2 hooks (only with cache opts)
   // + getShortObjectId(fullObjectId: string): number
   // + getFullObjectId(shortObjectId: number): string
-  const { getShortObjectId, getFullObjectId } = shortObjectId(mongodbObjectId, config, opts);
+  const { shortObjectId, getShortObjectId, getFullObjectId } = shortObjectId(mongodbObjectId, config, opts);
 
   // Result: 
   //  console.log(`*****\n ${shortObjectId} \n*****`);
@@ -86,7 +86,7 @@ This is a practical example of how to use.
   //  *****
 ```
 
-Soon, i will add an example maybe with `Raw Node.js` or `Express` or `Koa` 🔥. (WIP 🚧)
+> You can play around with it on this sandbox example [codesandbox.io/short-objectid](https://codesandbox.io/s/short-objectid-fs0kv) using `Express JS` and `Mongoose` 🙌🏻.
 
 
 #### License
