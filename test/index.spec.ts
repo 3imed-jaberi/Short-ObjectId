@@ -38,9 +38,11 @@ describe('unit test using ` mocha ☕️ ` & ` chai 🍵 ` is running 👻 ..', 
       expect(resultAfterSubscibtion).to.deep.equal({ shortObjectId: 3591228, oid: '507f191e810c19729de860ea' }));
    });
 
-   it('Success Test ✔️: use cache as options param + getShortObjectId() *️⃣ .. ', () => {
-      let result = shortObjectId(__MongoDB_ObjectID__, null, { cache: true }).getShortObjectId('507f191e810c19729de860ea');
-      expect(result).to.equal(3591228);
+   it('Success Test ✔️: use cache as options param + getShortObjectId() and shortObjectId *️⃣ .. ', () => {
+      let result = shortObjectId(__MongoDB_ObjectID__, null, { cache: true });
+      (expect(result.getShortObjectId('507f191e810c19729de860ea')).to.equal(3591228) &&
+      expect(result.shortObjectId).to.equal(3591228));
+      
    });
 
    it('Success Test ✔️: use cache as options param + getFullObjectId() *️⃣ .. ', () => {
