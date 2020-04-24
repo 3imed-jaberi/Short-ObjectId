@@ -32,6 +32,7 @@ function shortObjectId(_id: MongoDB_ObjectId, config?: UserConfig, opts?: Option
     // subscribe for all update without duplicate data ..    
     ShortObjectIdCache.getInstance().subscribe({ shortObjectId, oid: _id.$oid });
     return {
+      shortObjectId,
       getFullObjectId: (shortObjectId: number) => ShortObjectIdCache.getInstance().getFullObjectId(shortObjectId),
       getShortObjectId: (fullObjectId: string) => ShortObjectIdCache.getInstance().getShortObjectId(fullObjectId)
     }
