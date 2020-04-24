@@ -1,6 +1,6 @@
 {
   "name": "short-objectid",
-  "version": "5.0.0-rc",
+  "version": "5.0.0",
   "description": " The idea of this project is make your details route easier 🥰 .. ",
   "main": "dist/src/index.js",
   "files": [
